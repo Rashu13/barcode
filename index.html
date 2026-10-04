@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>A4 Barcode & Label Printer - Indian Market Presets</title>
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --accent: #10b981;
+      --bg: #090d16;
+      --panel: #111827;
+      --panel-card: #1f2937;
+      --panel-border: #374151;
+      --text: #f9fafb;
+      --text-muted: #9ca3af;
+      --sheet-scale: 1;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Mobile Header & Tabs */
+    .mobile-header {
+      display: none;
+      background: #0f172a;
+      border-bottom: 1px solid var(--panel-border);
+      padding: 10px 16px;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      width: 100%;
+    }
+
+    .mobile-nav-tabs {
+      display: flex;
+      background: #1e293b;
+      border-radius: 8px;
+      padding: 3px;
+      gap: 4px;
+    }
+
+    .mobile-tab-btn {
+      flex: 1;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      padding: 8px 12px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+
+    .mobile-tab-btn.active {
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 2px 8px rgba(37,99,235,0.4);
+    }
+
+    /* Sidebar controls */
+    .sidebar {
+      width: 440px;
+      min-width: 400px;
+      background: var(--panel);
+      border-right: 1px solid var(--panel-border);
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      z-index: 20;
+      box-shadow: 4px 0 24px rgba(0,0,0,0.5);
+    }
+
+    .sidebar-header {
+      padding: 16px 20px;
+      background: #0b1120;
+      border-bottom: 1px solid var(--panel-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .sidebar-header h1 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #38bdf8;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .badge-market {
+      background: rgba(16, 185, 129, 0.15);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      font-size: 0.72rem;
+      padding: 3px 8px;
+      border-radius: 9999px;
+      font-weight: 600;
+    }
+
+    .sidebar-content {
+      padding: 18px 20px;
+      overflow-y: auto;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .section-title {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #9ca3af;
+      font-weight: 700;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      margin-bottom: 10px;
+    }
+
+    .form-group label {
+      font-size: 0.82rem;
+      color: #d1d5db;
+      font-weight: 500;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    select {
+      background: #090d16;
+      border: 1px solid var(--panel-border);
+      color: #fff;
+      padding: 9px 12px;
+      border-radius: 6px;
+      font-size: 0.88rem;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      width: 100%;
+    }
+
+    input:focus, select:focus {
+      border-color: #38bdf8;
+      box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2);
+    }
+
+    .toggle-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px dashed rgba(255,255,255,0.06);
+    }
+
+    .toggle-row label {
+      font-size: 0.83rem;
+      color: #e5e7eb;
+      cursor: pointer;
+      flex: 1;
+      padding-right: 10px;
+    }
+
+    .toggle-row input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--primary);
+      cursor: pointer;
+    }
+
+    .sidebar-footer {
+      padding: 16px 20px;
+      background: #0b1120;
+      border-top: 1px solid var(--panel-border);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .btn-print {
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      color: white;
+      border: none;
+      padding: 12px 18px;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+      transition: all 0.2s;
+    }
+
+    .btn-print:hover {
+      background: linear-gradient(135deg, #1d4ed8, #1e40af);
+      transform: translateY(-1px);
+    }
+
+    .print-tip {
+      font-size: 0.73rem;
+      color: #9ca3af;
+      text-align: center;
+      line-height: 1.35;
+    }
+
+    /* Main Preview Area */
+    .preview-container {
+      flex: 1;
+      height: 100vh;
+      overflow-y: auto;
+      overflow-x: auto;
+      background: #090d16;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 24px 16px 60px 16px;
+      position: relative;
+    }
+
+    .preview-toolbar {
+      width: 100%;
+      max-width: 210mm;
+      margin-bottom: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #9ca3af;
+      font-size: 0.82rem;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .preview-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .info-tag {
+      background: #1f2937;
+      padding: 4px 10px;
+      border-radius: 6px;
+      border: 1px solid #374151;
+      color: #e5e7eb;
+      font-size: 0.78rem;
+    }
+
+    /* Zoom control toolbar */
+    .zoom-toolbar {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: #1f2937;
+      padding: 3px 6px;
+      border-radius: 8px;
+      border: 1px solid #374151;
+    }
+
+    .zoom-btn {
+      background: #374151;
+      border: none;
+      color: #fff;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .zoom-btn:hover {
+      background: #4b5563;
+    }
+
+    .zoom-label {
+      font-size: 0.75rem;
+      color: #38bdf8;
+      font-weight: 600;
+      min-width: 42px;
+      text-align: center;
+    }
+
+    /* Scaling viewport for mobile fit */
+    .sheet-zoom-viewport {
+      transform-origin: top center;
+      transition: transform 0.2s ease-out;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* A4 Sheet Simulation */
+    .sheet-wrapper {
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255,255,255,0.1);
+      background: #ffffff;
+      margin-bottom: 40px;
+      position: relative;
+    }
+
+    .a4-page {
+      width: 210mm;
+      height: 297mm;
+      position: relative;
+      background: #ffffff;
+      color: #000000;
+      box-sizing: border-box;
+      overflow: hidden;
+      page-break-after: always;
+    }
+
+    /* Grid container inside page */
+    .labels-grid {
+      position: absolute;
+      display: grid;
+      box-sizing: border-box;
+    }
+
+    /* Individual Label Box */
+    .label-box {
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      padding: 0.8mm 1.2mm;
+      background: #fff;
+      color: #000;
+      position: relative;
+      line-height: 1.1;
+    }
+
+    .label-box.show-border {
+      outline: 0.5px dashed #cbd5e1;
+      border-radius: 1.5mm;
+    }
+
+    .label-box.blank {
+      opacity: 0.25;
+      background: #f1f5f9;
+    }
+
+    /* Label Inner Elements */
+    .lbl-brand {
+      font-weight: 700;
+      font-size: 6.5pt;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+      letter-spacing: -0.1px;
+    }
+
+    .lbl-barcode-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      flex: 1;
+      min-height: 0;
+      margin: 0.2mm 0;
+    }
+
+    .lbl-barcode-svg {
+      max-width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .lbl-code-text {
+      font-family: 'Courier New', monospace;
+      font-weight: 700;
+      font-size: 6.5pt;
+      letter-spacing: 0.8px;
+    }
+
+    .lbl-details {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5mm;
+      font-size: 5.5pt;
+      font-weight: 600;
+      color: #111;
+      white-space: nowrap;
+      width: 100%;
+    }
+
+    .lbl-mrp {
+      font-weight: 800;
+    }
+
+    /* Compact 84 preset specific micro-layout */
+    .preset-84 .lbl-brand {
+      font-size: 4.8pt;
+      line-height: 1;
+    }
+    .preset-84 .lbl-code-text {
+      font-size: 4.8pt;
+      line-height: 1;
+    }
+    .preset-84 .lbl-details {
+      font-size: 4.2pt;
+      gap: 0.8mm;
+      line-height: 1;
+    }
+
+    /* Custom settings panel collapse */
+    .custom-panel {
+      background: #090d16;
+      border: 1px solid var(--panel-border);
+      border-radius: 8px;
+      padding: 12px;
+      margin-top: 6px;
+      display: none;
+    }
+
+    .custom-panel.active {
+      display: block;
+    }
+
+    /* Info card */
+    .info-box {
+      background: rgba(56, 189, 248, 0.08);
+      border-left: 3px solid #38bdf8;
+      padding: 10px 12px;
+      border-radius: 0 6px 6px 0;
+      font-size: 0.77rem;
+      color: #d1d5db;
+      line-height: 1.45;
+    }
+
+    .info-box b {
+      color: #38bdf8;
+    }
+
+    /* Floating Mobile Print Button */
+    .mobile-fab-print {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      color: white;
+      border: none;
+      padding: 14px 22px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      box-shadow: 0 6px 20px rgba(37,99,235,0.6);
+      z-index: 100;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+
+    /* ==========================================================================
+       RESPONSIVE MOBILE / TABLET STYLES (Screen width <= 900px)
+       ========================================================================== */
+    @media screen and (max-width: 900px) {
+      body {
+        flex-direction: column;
+        height: auto;
+        min-height: 100vh;
+        overflow-y: auto;
+      }
+
+      .mobile-header {
+        display: block;
+      }
+
+      .sidebar {
+        width: 100%;
+        min-width: 100%;
+        height: auto;
+        box-shadow: none;
+        border-right: none;
+        border-bottom: 1px solid var(--panel-border);
+        display: none; /* Controlled by tab */
+      }
+
+      .sidebar.active-tab {
+        display: flex;
+      }
+
+      .sidebar-header {
+        display: none; /* Replaced by mobile header */
+      }
+
+      .sidebar-footer {
+        display: none; /* Handled by mobile bar & tab */
+      }
+
+      .preview-container {
+        width: 100%;
+        height: auto;
+        padding: 16px 8px 100px 8px;
+        display: none; /* Controlled by tab */
+      }
+
+      .preview-container.active-tab {
+        display: flex;
+      }
+
+      .mobile-fab-print {
+        display: flex;
+      }
+
+      .preview-toolbar {
+        justify-content: center;
+      }
+    }
+
+    /* ==========================================================================
+       PRINT STYLES - ZERO MARGIN A4 EXACT SIZING (Standard for all printers)
+       ========================================================================== */
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 0 !important;
+      }
+
+      html, body {
+        width: 210mm !important;
+        height: 297mm !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: #ffffff !important;
+        color: #000000 !important;
+        overflow: visible !important;
+      }
+
+      .mobile-header,
+      .mobile-fab-print,
+      .sidebar,
+      .preview-toolbar,
+      .zoom-toolbar {
+        display: none !important;
+      }
+
+      .preview-container {
+        padding: 0 !important;
+        margin: 0 !important;
+        background: transparent !important;
+        overflow: visible !important;
+        display: block !important;
+      }
+
+      .sheet-zoom-viewport {
+        transform: none !important;
+      }
+
+      .sheet-wrapper {
+        box-shadow: none !important;
+        margin: 0 !important;
+        page-break-after: always !important;
+        break-after: page !important;
+      }
+
+      .a4-page {
+        margin: 0 !important;
+        border: none !important;
+        box-shadow: none !important;
+        page-break-inside: avoid !important;
+      }
+
+      .label-box.show-border {
+        outline: none !important;
+      }
+
+      .label-box.blank {
+        visibility: hidden !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- MOBILE NAVIGATION HEADER (Visible on Phone/Tablet) -->
+  <header class="mobile-header">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+      <h1 style="font-size: 1rem; color: #38bdf8; font-weight: 700; display: flex; align-items: center; gap: 6px;">
+        <span>📦</span> Barcode Studio
+      </h1>
+      <span class="badge-market">A4 Indian Sheet</span>
+    </div>
+
+    <!-- TABS: SETTINGS vs PREVIEW -->
+    <div class="mobile-nav-tabs">
+      <button class="mobile-tab-btn active" id="tabBtnSettings" onclick="switchMobileTab('settings')">
+        ⚙️ Settings & Data
+      </button>
+      <button class="mobile-tab-btn" id="tabBtnPreview" onclick="switchMobileTab('preview')">
+        👁️ Sheet Preview (<span id="mobCountBadge">84</span>)
+      </button>
+    </div>
+  </header>
+
+  <!-- LEFT CONTROL SIDEBAR -->
+  <aside class="sidebar active-tab" id="sidebarPanel">
+    <div class="sidebar-header">
+      <div>
+        <h1>
+          <span>📦</span> Barcode Label Studio
+        </h1>
+      </div>
+      <span class="badge-market">Indian Sheets (A4)</span>
+    </div>
+
+    <div class="sidebar-content">
+      
+      <!-- PRESET SELECTION -->
+      <div>
+        <div class="section-title">
+          <span>1. Label Sheet Preset (A4 Sticker Sheet)</span>
+        </div>
+        <div class="form-group">
+          <select id="sheetPreset" onchange="onPresetChange()">
+            <option value="84" selected>★ A4 - 84 Labels (46 × 11.1 mm) [4 × 21] - Desmat/Oddy</option>
+            <option value="65">★ A4 - 65 Labels (38.1 × 21.2 mm) [5 × 13]</option>
+            <option value="48">★ A4 - 48 Labels (45.7 × 21.2 mm) [4 × 12]</option>
+            <option value="40">★ A4 - 40 Labels (48.5 × 25.4 mm) [4 × 10]</option>
+            <option value="24">★ A4 - 24 Labels (70 × 37 mm) [3 × 8] - Amazon / Retail</option>
+            <option value="24_small">★ A4 - 24 Labels (64 × 33.8 mm) [3 × 8] - Oddy 24L</option>
+            <option value="21">★ A4 - 21 Labels (63.5 × 38.1 mm) [3 × 7]</option>
+            <option value="16">★ A4 - 16 Labels (99.1 × 34 mm) [2 × 8]</option>
+            <option value="12">★ A4 - 12 Labels (105 × 48 mm) [2 × 6]</option>
+            <option value="8">★ A4 - 8 Labels (105 × 74 mm) [2 × 4]</option>
+            <option value="custom">⚙️ Custom Manual Dimensions (mm)</option>
+          </select>
+        </div>
+
+        <!-- CUSTOM DIMENSIONS BOX -->
+        <div id="customSettings" class="custom-panel">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Columns (Cols)</label>
+              <input type="number" id="custCols" value="4" min="1" max="10" onchange="renderLabels()">
+            </div>
+            <div class="form-group">
+              <label>Rows</label>
+              <input type="number" id="custRows" value="21" min="1" max="40" onchange="renderLabels()">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Label Width (mm)</label>
+              <input type="number" id="custWidth" value="46" step="0.1" onchange="renderLabels()">
+            </div>
+            <div class="form-group">
+              <label>Label Height (mm)</label>
+              <input type="number" id="custHeight" value="11.1" step="0.1" onchange="renderLabels()">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Top Margin (mm)</label>
+              <input type="number" id="custTop" value="12.9" step="0.1" onchange="renderLabels()">
+            </div>
+            <div class="form-group">
+              <label>Left Margin (mm)</label>
+              <input type="number" id="custLeft" value="9.5" step="0.1" onchange="renderLabels()">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Horiz Gap (mm)</label>
+              <input type="number" id="custHGap" value="2.5" step="0.1" onchange="renderLabels()">
+            </div>
+            <div class="form-group">
+              <label>Vert Gap (mm)</label>
+              <input type="number" id="custVGap" value="0" step="0.1" onchange="renderLabels()">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PRODUCT / BARCODE DATA -->
+      <div>
+        <div class="section-title">
+          <span>2. Barcode & Product Details</span>
+        </div>
+
+        <div class="form-group">
+          <label>Barcode Value (SKU / Batch / EAN / Code)</label>
+          <input type="text" id="barcodeValue" value="BATCH-2026-A1" oninput="renderLabels()">
+        </div>
+
+        <div class="form-group">
+          <label>Company / Brand / Product Title</label>
+          <input type="text" id="productTitle" value="HERBAL AMRIT TEA" oninput="renderLabels()">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Batch No.</label>
+            <input type="text" id="batchNo" value="B-9024" oninput="renderLabels()">
+          </div>
+          <div class="form-group">
+            <label>MRP (₹)</label>
+            <input type="text" id="mrpValue" value="₹ 299.00" oninput="renderLabels()">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Packed Date</label>
+            <input type="text" id="mfgDate" value="10/2026" oninput="renderLabels()">
+          </div>
+          <div class="form-group">
+            <label>Net Qty / Size</label>
+            <input type="text" id="netQty" value="100 g" oninput="renderLabels()">
+          </div>
+        </div>
+      </div>
+
+      <!-- VISIBILITY TOGGLES -->
+      <div>
+        <div class="section-title">
+          <span>3. Label Content Toggles</span>
+        </div>
+        <div class="toggle-row">
+          <label for="showBrand">Show Brand / Product Title</label>
+          <input type="checkbox" id="showBrand" checked onchange="renderLabels()">
+        </div>
+        <div class="toggle-row">
+          <label for="showCodeText">Show Barcode Text Under Bars</label>
+          <input type="checkbox" id="showCodeText" checked onchange="renderLabels()">
+        </div>
+        <div class="toggle-row">
+          <label for="showBatch">Show Batch Number</label>
+          <input type="checkbox" id="showBatch" checked onchange="renderLabels()">
+        </div>
+        <div class="toggle-row">
+          <label for="showMrp">Show MRP</label>
+          <input type="checkbox" id="showMrp" checked onchange="renderLabels()">
+        </div>
+        <div class="toggle-row">
+          <label for="showMfg">Show Packed Date</label>
+          <input type="checkbox" id="showMfg" onchange="renderLabels()">
+        </div>
+        <div class="toggle-row">
+          <label for="showBorders">Show Label Outline (Preview only)</label>
+          <input type="checkbox" id="showBorders" checked onchange="renderLabels()">
+        </div>
+      </div>
+
+      <!-- QUANTITY & SKIP STICKERS -->
+      <div>
+        <div class="section-title">
+          <span>4. Quantity & Smart Sheet Saver</span>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Total Labels to Print</label>
+            <input type="number" id="labelCount" value="84" min="1" max="500" onchange="renderLabels()">
+          </div>
+          <div class="form-group">
+            <label title="Skip stickers if you already used part of this A4 sheet">Start from Label #</label>
+            <input type="number" id="startOffset" value="1" min="1" max="100" onchange="renderLabels()">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Auto-Increment Barcode (Serial Numbers)</label>
+          <select id="autoIncrement" onchange="renderLabels()">
+            <option value="none" selected>Same barcode on all stickers</option>
+            <option value="serial">Auto-increment ending number (+1 per sticker)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- FAQ INFO CARD -->
+      <div class="info-box">
+        💡 <b>Barcode me kya hota hai?</b><br>
+        Barcode me sirf batch number nahi hota! Isme <b>SKU / Product Code</b>, <b>EAN-13</b>, ya <b>Batch Number</b> store hota hai jise scanner instant read karta hai.
+      </div>
+
+      <!-- MOBILE SWITCH TO PREVIEW BUTTON -->
+      <div style="margin-top: 10px;" class="only-mobile-block">
+        <button class="btn-print" style="width: 100%;" onclick="switchMobileTab('preview')">
+          👁️ Go to Sheet Preview & Print
+        </button>
+      </div>
+
+    </div>
+
+    <!-- DESKTOP PRINT BUTTON FOOTER -->
+    <div class="sidebar-footer">
+      <button class="btn-print" onclick="window.print()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 6 2 18 2 18 9"></polyline>
+          <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+          <rect x="6" y="14" width="12" height="8"></rect>
+        </svg>
+        Print Labels (Ctrl + P)
+      </button>
+      <div class="print-tip">
+        <b>Printer Note:</b> Paper Size = <b>A4</b>, Margins = <b>None</b>, Scale = <b>100% (Default)</b>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN PREVIEW CANVAS -->
+  <main class="preview-container" id="previewPanel">
+    <div class="preview-toolbar">
+      <div class="preview-info">
+        <span class="info-tag" id="currentPresetName">Preset: A4 - 84 (46 × 11.1 mm)</span>
+        <span class="info-tag" id="sheetSummaryTag">84 Labels / Page</span>
+      </div>
+      
+      <!-- ZOOM TOOLBAR (Essential for Mobile & Small Screens) -->
+      <div class="zoom-toolbar">
+        <button class="zoom-btn" onclick="adjustZoom(-0.1)" title="Zoom Out">-</button>
+        <span class="zoom-label" id="zoomValText">100%</span>
+        <button class="zoom-btn" onclick="adjustZoom(0.1)" title="Zoom In">+</button>
+        <button class="zoom-btn" onclick="fitToWidth()" title="Fit to Screen Width">Fit</button>
+        <button class="zoom-btn" onclick="resetZoom()" title="Reset to 100%">100%</button>
+      </div>
+    </div>
+
+    <!-- ZOOM VIEWPORT WRAPPER -->
+    <div class="sheet-zoom-viewport" id="zoomViewport">
+      <!-- CONTAINER FOR RENDERED A4 PAGES -->
+      <div id="pagesContainer"></div>
+    </div>
+  </main>
+
+  <!-- FLOATING MOBILE PRINT BUTTON -->
+  <button class="mobile-fab-print" onclick="window.print()">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="6 9 6 2 18 2 18 9"></polyline>
+      <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+      <rect x="6" y="14" width="12" height="8"></rect>
+    </svg>
+    Print / Save PDF
+  </button>
+
+  <script>
+    // Current Zoom scale
+    let currentZoom = 1.0;
+
+    // STANDARD INDIAN MARKET LABEL SHEET PRESETS (Values in Millimeters mm)
+    const PRESETS = {
+      "84": {
+        name: "A4 - 84 Labels (46 × 11.1 mm)",
+        cols: 4,
+        rows: 21,
+        width: 46.0,
+        height: 11.1,
+        top: 12.9,
+        left: 9.5,
+        hGap: 2.5,
+        vGap: 0.0,
+        class: "preset-84"
+      },
+      "65": {
+        name: "A4 - 65 Labels (38.1 × 21.2 mm)",
+        cols: 5,
+        rows: 13,
+        width: 38.1,
+        height: 21.2,
+        top: 10.7,
+        left: 9.5,
+        hGap: 2.5,
+        vGap: 0.0,
+        class: "preset-65"
+      },
+      "48": {
+        name: "A4 - 48 Labels (45.7 × 21.2 mm)",
+        cols: 4,
+        rows: 12,
+        width: 45.7,
+        height: 21.2,
+        top: 21.3,
+        left: 8.5,
+        hGap: 2.5,
+        vGap: 0.0,
+        class: "preset-48"
+      },
+      "40": {
+        name: "A4 - 40 Labels (48.5 × 25.4 mm)",
+        cols: 4,
+        rows: 10,
+        width: 48.5,
+        height: 25.4,
+        top: 21.5,
+        left: 8.0,
+        hGap: 2.0,
+        vGap: 0.0,
+        class: "preset-40"
+      },
+      "24": {
+        name: "A4 - 24 Labels (70 × 37 mm) - Amazon FBA",
+        cols: 3,
+        rows: 8,
+        width: 70.0,
+        height: 37.0,
+        top: 0.5,
+        left: 0.0,
+        hGap: 0.0,
+        vGap: 0.0,
+        class: "preset-24"
+      },
+      "24_small": {
+        name: "A4 - 24 Labels (64 × 33.8 mm) - Oddy 24L",
+        cols: 3,
+        rows: 8,
+        width: 64.0,
+        height: 33.8,
+        top: 13.0,
+        left: 6.5,
+        hGap: 2.5,
+        vGap: 0.0,
+        class: "preset-24-small"
+      },
+      "21": {
+        name: "A4 - 21 Labels (63.5 × 38.1 mm)",
+        cols: 3,
+        rows: 7,
+        width: 63.5,
+        height: 38.1,
+        top: 15.1,
+        left: 7.2,
+        hGap: 2.5,
+        vGap: 0.0,
+        class: "preset-21"
+      },
+      "16": {
+        name: "A4 - 16 Labels (99.1 × 34 mm)",
+        cols: 2,
+        rows: 8,
+        width: 99.1,
+        height: 34.0,
+        top: 12.5,
+        left: 4.5,
+        hGap: 2.5,
+        vGap: 0.0,
+        class: "preset-16"
+      },
+      "12": {
+        name: "A4 - 12 Labels (105 × 48 mm)",
+        cols: 2,
+        rows: 6,
+        width: 105.0,
+        height: 48.0,
+        top: 4.5,
+        left: 0.0,
+        hGap: 0.0,
+        vGap: 0.0,
+        class: "preset-12"
+      },
+      "8": {
+        name: "A4 - 8 Labels (105 × 74 mm)",
+        cols: 2,
+        rows: 4,
+        width: 105.0,
+        height: 74.0,
+        top: 0.5,
+        left: 0.0,
+        hGap: 0.0,
+        vGap: 0.0,
+        class: "preset-8"
+      }
+    };
+
+    // PURE JAVASCRIPT CODE 128 BARCODE SVG GENERATOR (100% Vector, Razor-Sharp at Any DPI)
+    const Code128 = {
+      patterns: [
+        "212222", "222122", "222221", "121223", "121322", "131222", "122213", "122312", "132212", "221213",
+        "221312", "231212", "112232", "122132", "122231", "113222", "123122", "123221", "223211", "221132",
+        "221231", "213212", "223112", "312131", "311222", "321122", "321221", "312212", "322112", "322211",
+        "212123", "212321", "232121", "111323", "131123", "131321", "112313", "132113", "132311", "211313",
+        "231113", "231311", "112133", "112331", "132131", "113123", "113321", "133121", "313121", "211331",
+        "231131", "213113", "213311", "213131", "311123", "311321", "331121", "312113", "312311", "332111",
+        "314111", "221411", "431111", "111224", "111422", "121124", "121421", "141122", "141221", "112214",
+        "112412", "122114", "122411", "142112", "142211", "241211", "221114", "413111", "241112", "134111",
+        "111242", "121142", "121241", "114212", "124112", "124211", "411212", "421112", "421211", "212141",
+        "214121", "412121", "111143", "111341", "131141", "114113", "114311", "411113", "411311", "113141",
+        "114131", "311141", "411131", "211412", "211214", "211232", "2331112"
+      ],
+
+      generateSvg(text, height = 30) {
+        if (!text) text = "SAMPLE";
+        let codes = [104]; // Code B Start
+        for (let i = 0; i < text.length; i++) {
+          let code = text.charCodeAt(i) - 32;
+          if (code < 0 || code > 95) code = 0;
+          codes.push(code);
+        }
+
+        let checksum = codes[0];
+        for (let i = 1; i < codes.length; i++) {
+          checksum += codes[i] * i;
+        }
+        checksum = checksum % 103;
+        codes.push(checksum);
+        codes.push(106); // Stop code
+
+        let patternStr = "";
+        for (let code of codes) {
+          patternStr += this.patterns[code];
+        }
+
+        let totalWidth = 0;
+        for (let i = 0; i < patternStr.length; i++) {
+          totalWidth += parseInt(patternStr[i]);
+        }
+
+        const quietZone = 10;
+        const svgWidth = totalWidth + (quietZone * 2);
+
+        let svg = `<svg viewBox="0 0 ${svgWidth} ${height}" class="lbl-barcode-svg" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">`;
+        let curX = quietZone;
+
+        for (let i = 0; i < patternStr.length; i++) {
+          let barWidth = parseInt(patternStr[i]);
+          let isBlack = (i % 2 === 0);
+          if (isBlack) {
+            svg += `<rect x="${curX}" y="0" width="${barWidth}" height="${height}" fill="#000000" />`;
+          }
+          curX += barWidth;
+        }
+        svg += `</svg>`;
+        return svg;
+      }
+    };
+
+    // Mobile Tab Switching (Settings vs Preview)
+    function switchMobileTab(tab) {
+      const sidebar = document.getElementById("sidebarPanel");
+      const preview = document.getElementById("previewPanel");
+      const btnSet = document.getElementById("tabBtnSettings");
+      const btnPrev = document.getElementById("tabBtnPreview");
+
+      if (tab === 'settings') {
+        sidebar.classList.add("active-tab");
+        preview.classList.remove("active-tab");
+        btnSet.classList.add("active");
+        btnPrev.classList.remove("active");
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        sidebar.classList.remove("active-tab");
+        preview.classList.add("active-tab");
+        btnSet.classList.remove("active");
+        btnPrev.classList.add("active");
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        // Auto fit to screen width when switching to preview on mobile
+        if (window.innerWidth <= 900) {
+          setTimeout(fitToWidth, 50);
+        }
+      }
+    }
+
+    // Zoom Functions
+    function applyZoom() {
+      const viewport = document.getElementById("zoomViewport");
+      viewport.style.transform = `scale(${currentZoom})`;
+      document.getElementById("zoomValText").innerText = `${Math.round(currentZoom * 100)}%`;
+    }
+
+    function adjustZoom(delta) {
+      currentZoom = Math.max(0.2, Math.min(2.0, currentZoom + delta));
+      applyZoom();
+    }
+
+    function resetZoom() {
+      currentZoom = 1.0;
+      applyZoom();
+    }
+
+    function fitToWidth() {
+      const containerWidth = document.getElementById("previewPanel").clientWidth - 32;
+      // 210mm in pixels at 96dpi is approx 794px
+      const a4WidthPx = 794;
+      currentZoom = Math.min(1.0, containerWidth / a4WidthPx);
+      applyZoom();
+    }
+
+    function onPresetChange() {
+      const presetKey = document.getElementById("sheetPreset").value;
+      const customPanel = document.getElementById("customSettings");
+
+      if (presetKey === "custom") {
+        customPanel.classList.add("active");
+        document.getElementById("currentPresetName").innerText = "Preset: Custom Manual Dimensions";
+      } else {
+        customPanel.classList.remove("active");
+        const p = PRESETS[presetKey];
+        document.getElementById("currentPresetName").innerText = `Preset: ${p.name}`;
+        document.getElementById("labelCount").value = p.cols * p.rows;
+      }
+      renderLabels();
+    }
+
+    function getActiveConfig() {
+      const presetKey = document.getElementById("sheetPreset").value;
+      if (presetKey === "custom") {
+        return {
+          name: "Custom",
+          cols: parseInt(document.getElementById("custCols").value) || 4,
+          rows: parseInt(document.getElementById("custRows").value) || 21,
+          width: parseFloat(document.getElementById("custWidth").value) || 46,
+          height: parseFloat(document.getElementById("custHeight").value) || 11.1,
+          top: parseFloat(document.getElementById("custTop").value) || 12.9,
+          left: parseFloat(document.getElementById("custLeft").value) || 9.5,
+          hGap: parseFloat(document.getElementById("custHGap").value) || 2.5,
+          vGap: parseFloat(document.getElementById("custVGap").value) || 0,
+          class: "preset-custom"
+        };
+      }
+      return PRESETS[presetKey];
+    }
+
+    function generateCodeForIndex(baseCode, index, autoInc) {
+      if (autoInc !== "serial") return baseCode;
+      const match = baseCode.match(/(\d+)$/);
+      if (!match) {
+        return `${baseCode}-${String(index + 1).padStart(3, '0')}`;
+      }
+      const numStr = match[1];
+      const prefix = baseCode.slice(0, match.index);
+      const newNum = parseInt(numStr, 10) + index;
+      return prefix + String(newNum).padStart(numStr.length, '0');
+    }
+
+    function renderLabels() {
+      const config = getActiveConfig();
+      const labelsPerSheet = config.cols * config.rows;
+      
+      const totalLabelsNeeded = parseInt(document.getElementById("labelCount").value) || labelsPerSheet;
+      const startOffset = parseInt(document.getElementById("startOffset").value) || 1;
+      const autoInc = document.getElementById("autoIncrement").value;
+
+      // Inputs
+      const baseBarcode = document.getElementById("barcodeValue").value.trim() || "SAMPLE123";
+      const title = document.getElementById("productTitle").value.trim();
+      const batch = document.getElementById("batchNo").value.trim();
+      const mrp = document.getElementById("mrpValue").value.trim();
+      const mfg = document.getElementById("mfgDate").value.trim();
+
+      // Toggles
+      const showBrand = document.getElementById("showBrand").checked;
+      const showCodeText = document.getElementById("showCodeText").checked;
+      const showBatch = document.getElementById("showBatch").checked;
+      const showMrp = document.getElementById("showMrp").checked;
+      const showMfg = document.getElementById("showMfg").checked;
+      const showBorders = document.getElementById("showBorders").checked;
+
+      // Calculate total slots needed (skipped + actual labels)
+      const totalSlots = (startOffset - 1) + totalLabelsNeeded;
+      const totalPages = Math.ceil(totalSlots / labelsPerSheet);
+
+      document.getElementById("sheetSummaryTag").innerText = 
+        `${totalLabelsNeeded} Stickers (${totalPages} Sheet${totalPages > 1 ? 's' : ''})`;
+      document.getElementById("mobCountBadge").innerText = totalLabelsNeeded;
+
+      const container = document.getElementById("pagesContainer");
+      container.innerHTML = "";
+
+      let labelPrintedIndex = 0;
+
+      for (let pageNum = 0; pageNum < totalPages; pageNum++) {
+        const pageWrapper = document.createElement("div");
+        pageWrapper.className = "sheet-wrapper";
+
+        const a4Page = document.createElement("div");
+        a4Page.className = `a4-page ${config.class || ''}`;
+
+        // Create inner grid
+        const grid = document.createElement("div");
+        grid.className = "labels-grid";
+        grid.style.top = `${config.top}mm`;
+        grid.style.left = `${config.left}mm`;
+        grid.style.gridTemplateColumns = `repeat(${config.cols}, ${config.width}mm)`;
+        grid.style.gridTemplateRows = `repeat(${config.rows}, ${config.height}mm)`;
+        grid.style.columnGap = `${config.hGap}mm`;
+        grid.style.rowGap = `${config.vGap}mm`;
+
+        for (let slot = 0; slot < labelsPerSheet; slot++) {
+          const globalSlotIndex = pageNum * labelsPerSheet + slot + 1;
+          const labelBox = document.createElement("div");
+          labelBox.className = "label-box";
+          labelBox.style.width = `${config.width}mm`;
+          labelBox.style.height = `${config.height}mm`;
+
+          if (showBorders) {
+            labelBox.classList.add("show-border");
+          }
+
+          if (globalSlotIndex < startOffset || labelPrintedIndex >= totalLabelsNeeded) {
+            // Empty / Skipped label slot
+            labelBox.classList.add("blank");
+            labelBox.innerHTML = `<span style="font-size: 7pt; color: #9ca3af;">#${globalSlotIndex}</span>`;
+          } else {
+            // Active Label
+            const currentCode = generateCodeForIndex(baseBarcode, labelPrintedIndex, autoInc);
+            const barcodeSvg = Code128.generateSvg(currentCode, config.height < 15 ? 18 : 28);
+
+            let contentHtml = "";
+
+            if (showBrand && title) {
+              contentHtml += `<div class="lbl-brand" title="${title}">${title}</div>`;
+            }
+
+            contentHtml += `<div class="lbl-barcode-container">${barcodeSvg}</div>`;
+
+            if (showCodeText) {
+              contentHtml += `<div class="lbl-code-text">${currentCode}</div>`;
+            }
+
+            // Bottom details row (MRP, Batch, Pkd Date)
+            let details = [];
+            if (showMrp && mrp) details.push(`<span class="lbl-mrp">MRP: ${mrp}</span>`);
+            if (showBatch && batch) details.push(`<span>B: ${batch}</span>`);
+            if (showMfg && mfg) details.push(`<span>Pkd: ${mfg}</span>`);
+
+            if (details.length > 0) {
+              contentHtml += `<div class="lbl-details">${details.join(" | ")}</div>`;
+            }
+
+            labelBox.innerHTML = contentHtml;
+            labelPrintedIndex++;
+          }
+
+          grid.appendChild(labelBox);
+        }
+
+        a4Page.appendChild(grid);
+        pageWrapper.appendChild(a4Page);
+        container.appendChild(pageWrapper);
+      }
+    }
+
+    // Auto-detect screen size on load
+    window.addEventListener("DOMContentLoaded", () => {
+      onPresetChange();
+      if (window.innerWidth <= 900) {
+        fitToWidth();
+      }
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth <= 900 && document.getElementById("previewPanel").classList.contains("active-tab")) {
+        fitToWidth();
+      }
+    });
+  </script>
+</body>
+</html>
